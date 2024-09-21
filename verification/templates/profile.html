@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="/static/favicon.ico">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <meta property="og:title" content="PragICTS">
+    <meta property="og:description" content="PragICTS | Software Development, ITOps (IT Operations) &amp; CloudOps (Cloud Operation) Services Company">
+    <meta property="og:image" content="https://s3.ap-southeast-1.amazonaws.com/itops.pragicts.com/1.png">
+    <meta property="og:url" content="https://www.hrm.pragicts.com">
+    <meta property="og:type" content="website">
+    <meta name="format-detection" content="telephone=no">
+    <title>Member Verification | {{ member['name'] }} </title>
+    <style>
+        *{
+           border: 0;
+           margin: 0;
+           padding: 0;
+           color: black;
+           font-family: sans-serif;
+       }
+       body, html{
+           height: 100%;
+           background-image: url("{{ url_for('static', filename='f1.jpg') }}");
+           background-attachment: fixed;
+           background-size: cover;
+           background-position: center;
+       }
+       .container {
+           position: relative;
+           height: 100%;
+       }
+       .content {
+         position: relative;
+         top: 10%;
+         text-align: center;
+       }
+       .card{
+            width: 280px;
+            background-color: #ffffff;
+            border: 1px solid #ff0000;
+            text-align: center;
+            display: inline-block;
+            margin-top: 100px;
+            box-shadow: -1px 1px 8px rgb(255, 0, 0);
+            margin: 20px;
+       }
+       img{width: 100%;}
+       .card h1{
+           text-align: center;
+           margin-top: 10px;
+           margin-bottom: 15px;
+       }
+       .card span{
+           margin: 20px 0px;
+           display: inline-block;
+           color: #7a7878;
+           margin-top: 10px;
+       }
+       .card p{
+           margin-bottom: 20px;
+           font-size: 15px;
+       }
+       .card a{
+           font-size: 20px;
+       }
+       .card a i:hover{
+           color: #aaaaaa;
+       }
+       .card button{
+           display: inline-block;
+           width: 87%;
+           padding: 10px;
+           background-color: black;
+           color: white;
+           font-size: 19px;
+           margin-bottom: 17px;
+           margin-top: 20px;
+           cursor: pointer;
+       }
+       .card button:hover{
+           background-color: #ff0000;
+       }
+       /* Video popup styles */
+       .popup-container {
+           position: fixed;
+           top: 0;
+           left: 0;
+           width: 100%;
+           height: 100%;
+           background: rgba(0, 0, 0, 0.5);
+           display: flex;
+           justify-content: center;
+           align-items: center;
+           z-index: 9999;
+           visibility: hidden;
+           opacity: 0;
+           transition: visibility 0s, opacity 0.5s;
+       }
+       .popup-container.show {
+           visibility: visible;
+           opacity: 1;
+       }
+       .video-popup {
+           position: relative;
+           max-width: 90%;
+           max-height: 90%;
+       }
+       .close-btn {
+           position: absolute;
+           top: 10px;
+           right: 10px;
+           background: transparent;
+           color: white;
+           border: none;
+           padding: 5px 10px;
+           cursor: pointer;
+           font-size: 18px;
+           z-index: 99999; /* Ensure the button is on top of other elements */
+       }
+       .close-btn:hover {
+           color: #ff0000;
+       }
+       video {
+           width: 100%;
+           height: 100%;
+       }
+       #playVideoBtn:hover{
+        cursor:pointer !important;
+       } 
+       .material-icons{
+        color: white;
+       }
+       .material-icons:hover{
+        color: red;
+       }
+       .footer{
+    font-size: 13px;
+    text-decoration: none;
+    color: rgb(146, 144, 144) !important;
+    
+  }
+
+  .footer-link{
+    color: rgb(146, 144, 144);
+  }
+
+  .footer-link:hover{
+    color:red;
+  }
+
+       @media only screen and (max-width: 600px) {
+  .logo{
+    width: 200px !important;
+  }
+  .title{
+    font-size: 25px !important;
+  }
+  .profile-image{
+    width:200px !important ;
+  }
+  .name{
+    font-size: 18px !important;
+  }
+  
+  .designation{
+    font-size: 22px !important;
+  }
+
+  .soical{
+    font-size: 15px;
+  }
+  .footer{
+    font-size: 12px;
+  }
+}
+
+
+.no-dec {
+    /* Prevent hyperlink behavior */
+  
+    text-decoration:none !important; /* Optional, removes underline */
+    color: inherit !important; /* Optional, inherits color from parent */
+    
+}
+
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="content">
+            <img class="logo" src="{{ url_for('static', filename='myBIZ-logo.png') }}" style="width: 300px;" alt="Example Image"><br>
+            <h1 class="title" style="margin-bottom: 5px;color: white;margin-top: 20px;padding-bottom: 100px;text-transform: uppercase;">Member Verification</h1>
+      
+         <!--   {% if member['video'] %}
+            <i id="playVideoBtn" class="material-icons">&#xe04b;</i>
+            {% endif %} -->
+
+            <div><span class="name" style="color: white;margin-top: 20px;font-size: 40px;"><span style="font-weight: bold; text-transform: uppercase;color: white;">{{ member['name'] }}</span></span> </div>
+         
+           
+            <img class="profile-image" src="{{ url_for('static', filename=member['logo']) }}" style="width: 100px;margin-top: 20px;" alt="{{ member['title'] }}"><img class="profile-image" src="{{ url_for('static', filename=member['logo2']) }}" style="width: 100px;margin-top: 20px;" alt="{{ member['title'] }}"><img class="profile-image" src="{{ url_for('static', filename=member['logo3']) }}" style="width: 100px;margin-top: 20px;" alt="{{ member['title'] }}"><img class="profile-image" src="{{ url_for('static', filename=member['logo4']) }}" style="width: 100px;margin-top: 20px;" alt="{{ member['title'] }}"><br>
+            
+            <h3 style="color: white;">{{ member['company'] }}</h3>
+            <div style="color: white;" ><a class="no-dec" href="{{ member['url'] }}" target="_blank"><span class="soical phone-number" style="color: white;font-size: 18px;">{{ member['url'] }}</span></a><br><a class="no-dec" href="{{ member['url2'] }}" target="_blank"><span class="soical phone-number" style="color: white;font-size: 18px;">{{ member['url2'] }}</span></a><br><a class="no-dec" href="{{ member['url3'] }}" target="_blank"><span class="soical phone-number" style="color: white;font-size: 18px;">{{ member['url3'] }}</span></a><br><a class="no-dec" href="{{ member['url4'] }}" target="_blank"><span class="soical phone-number" style="color: white;font-size: 18px;">{{ member['url4'] }}</span></a></div>
+            
+            <!-- Button to play video -->
+            <p class="footer" style="color: white;margin-top: 50px;padding-bottom: 20px;">DIGITAL IDENTITY VERIFICATION PLATFORM BY <a href="https://pragicts.com/" target="_blank"  class="footer-link">PragICTS</a></p>
+            <!-- Video popup container -->
+            <div class="popup-container" id="videoPopup">
+                <div class="video-popup">
+                    <button class="close-btn" onclick="closeVideoPopup()">X</button>
+                    <video id="memberVideo" controls>
+                        <source src="{{ url_for('static', filename=member['video']) }}" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        // Function to open video popup
+        function openVideoPopup() {
+            document.getElementById('videoPopup').classList.add('show');
+            // Autoplay the video
+            document.getElementById('memberVideo').play();
+        }
+
+        // Function to close video popup
+        function closeVideoPopup() {
+            document.getElementById('videoPopup').classList.remove('show');
+            // Pause the video when closing the popup
+            document.getElementById('memberVideo').pause();
+        }
+
+        // Event listener for the play button
+        document.getElementById('playVideoBtn').addEventListener('click', openVideoPopup);
+
+        // Close the video popup when clicking outside the video
+        window.onclick = function(event) {
+            var videoPopup = document.getElementById('videoPopup');
+            if (event.target == videoPopup) {
+                videoPopup.classList.remove('show');
+                // Pause the video when closing the popup
+                document.getElementById('memberVideo').pause();
+            }
+        }
+
+
+    
+    </script>
+</body>
+</html>

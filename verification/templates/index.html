@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link rel="icon" type="image/x-icon" href="/static/favicon.ico">
+<meta property="og:title" content="PragICTS">
+<meta property="og:description" content="PragICTS | Software Development, ITOps (IT Operations) &amp; CloudOps (Cloud Operation) Services Company">
+<meta property="og:image" content="https://s3.ap-southeast-1.amazonaws.com/itops.pragicts.com/1.png">
+<meta property="og:url" content="https://www.hrm.pragicts.com">
+<meta property="og:type" content="website">
+
+    <title>myBIZ</title>
+
+    <style>
+ *{
+    border: 0;
+    margin: 0;
+    padding: 0;
+    color: black;
+    font-family: sans-serif
+}
+body, html{
+ 
+    height: 100%;
+    background-image: url("{{ url_for('static', filename='f1.jpg') }}");
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+}
+
+.container {
+    position: relative;
+  height: 100%;
+  
+    
+}
+.content {
+  position: relative;
+  top: 10%;
+  text-align: center;
+  
+
+}
+.card{
+     width: 280px;
+     background-color: rgba(255, 255, 255, 0.863);
+    border: 1px solid #ff0000;
+    text-align: center;
+    display: inline-block;
+    margin-top: 100px;
+    box-shadow: -1px 1px 8px rgb(255, 0, 0);
+    margin: 20px
+    
+}
+img{width: 100%;
+    
+    
+}
+.card h1{
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 15px;
+    
+}
+.card span{
+    padding-bottom: 10px;
+    display: inline-block;
+    color: #181717;
+
+}
+.card p{
+    margin-bottom: 20px;
+    font-size: 15px
+}
+.card a{
+    font-size: 20px
+}
+
+.card a i:hover{
+    color: #aaaaaa;
+    
+}
+.card button{
+    display: inline-block;
+    width: 87%;
+    padding: 10px;
+    background-color: black;
+    color: white;
+    font-size: 19px;
+    margin-bottom: 17px;
+    margin-top: 20px;
+    cursor: pointer;
+  
+}
+.card button:hover{
+    background-color: #ff0000
+}
+
+.material-icons:hover{
+    color: red !important;
+}
+.center{
+    position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.35);
+  width: 600px;
+  font-size: 20px;
+
+}
+
+@media only screen and (max-width: 600px) {
+    .center{
+    position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.35);
+width: 300px;
+  font-size: 10px;
+}
+}
+
+    </style>
+
+
+</head>
+<body>
+   
+    <div class="container">
+        <div class="content">
+            <img src="{{ url_for('static', filename='myBIZ-logo.png') }}" style="width: 300px;" alt="Example Image"><br>
+  
+
+    </div>
+    </div>
+    <div class="center">
+    <h1 style="color: white;" >Welcome to myBIZ<br> for any queries contact</h1>
+    <h2 style="color: red;">info@mybizsl.lk</h2>
+</div>
+    </body>
+    
+</html>
